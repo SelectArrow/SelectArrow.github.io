@@ -2,4 +2,4 @@
 
 Website dari komunitas Select Arrow yang digunakan untuk memaparkan hasil dari proyek yang dikerjakan dalam komunitas Select Arrow.
 bang
-Jangan lupa makan
+Jangan lupa makan ,sehat ya bang
