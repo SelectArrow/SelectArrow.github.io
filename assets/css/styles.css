@@ -1,6 +1,6 @@
 #logo {
-    width: 200px;
-    height: 100px;
+    width: 500px;
+    height: 500;
     background-image: url('logoselectarrow.png');
     background-size: contain; /* Menyesuaikan ukuran gambar */
     background-repeat: no-repeat;
