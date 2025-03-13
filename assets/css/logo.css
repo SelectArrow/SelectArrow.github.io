@@ -1,1 +1,7 @@
-
+#logo {
+    width: 200px;
+    height: 100px;
+    background-image: url('logoselectarrow.png');
+    background-size: contain; /* Menyesuaikan ukuran gambar */
+    background-repeat: no-repeat;
+}
