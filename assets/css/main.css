@@ -1770,7 +1770,7 @@ section,
 
 .portfolio-details .portfolio-description p {
   padding: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--background-color), transparent 30%);
 }
 
 /*--------------------------------------------------------------
