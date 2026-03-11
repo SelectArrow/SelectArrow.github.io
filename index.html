@@ -45,6 +45,11 @@
     .then(response => response.text())
     .then(data => {
       document.getElementById("navbar").innerHTML = data;
+
+      // Load main.js AFTER navbar exists
+      let script = document.createElement("script");
+      script.src = "assets/js/main.js";
+      document.body.appendChild(script);
     });
   </script>
 
@@ -996,11 +1001,20 @@
   <div id="footer-container"></div>
 
   <script>
-  fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-container").innerHTML = data;
-    });
+  Promise.all([
+    fetch("navbar.html").then(r => r.text()),
+    fetch("footer.html").then(r => r.text())
+  ]).then(([navbar, footer]) => {
+
+    document.getElementById("navbar").innerHTML = navbar;
+    document.getElementById("footer-container").innerHTML = footer;
+
+    // load template JS after components exist
+    let script = document.createElement("script");
+    script.src = "assets/js/main.js";
+    document.body.appendChild(script);
+
+  });
   </script>
 
   <!-- Scroll Top -->
