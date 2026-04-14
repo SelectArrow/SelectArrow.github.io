@@ -40,18 +40,6 @@
 <body class="index-page">
 
   <div id="navbar"></div>
-  <script>
-  fetch("navbar.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-
-      // Load main.js AFTER navbar exists
-      let script = document.createElement("script");
-      script.src = "assets/js/main.js";
-      document.body.appendChild(script);
-    });
-  </script>
 
   <main class="main">
 
@@ -1009,7 +997,7 @@
     document.getElementById("navbar").innerHTML = navbar;
     document.getElementById("footer-container").innerHTML = footer;
 
-    // load template JS after components exist
+    // load main.js
     let script = document.createElement("script");
     script.src = "assets/js/main.js";
     document.body.appendChild(script);
