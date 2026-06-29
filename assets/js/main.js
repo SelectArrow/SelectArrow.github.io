@@ -13,11 +13,23 @@
    * Apply .scrolled class to the body as the page is scrolled down
    */
   function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+  const selectBody = document.body;
+  const selectHeader = document.querySelector('#header');
+
+  if (!selectHeader) return;
+
+  if (
+    !selectHeader.classList.contains('scroll-up-sticky') &&
+    !selectHeader.classList.contains('sticky-top') &&
+    !selectHeader.classList.contains('fixed-top')
+  ) return;
+
+  if (window.scrollY > 100) {
+    selectBody.classList.add('scrolled');
+  } else {
+    selectBody.classList.remove('scrolled');
   }
+}
 
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
@@ -27,12 +39,15 @@
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
+if (mobileNavToggleBtn) {
   function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
+    document.body.classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
+
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+}
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -73,11 +88,17 @@
    */
   let scrollTop = document.querySelector('.scroll-top');
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
+  let scrollTop = document.querySelector('.scroll-top');
+
+function toggleScrollTop() {
+  if (scrollTop) {
+    window.scrollY > 100
+      ? scrollTop.classList.add('active')
+      : scrollTop.classList.remove('active');
   }
+}
+
+if (scrollTop) {
   scrollTop.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({
@@ -85,9 +106,10 @@
       behavior: 'smooth'
     });
   });
+}
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+window.addEventListener('load', toggleScrollTop);
+document.addEventListener('scroll', toggleScrollTop);
 
   /**
    * Animation on scroll function and init
